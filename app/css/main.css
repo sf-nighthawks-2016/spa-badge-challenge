@@ -1,11 +1,11 @@
 @import url("normalize.css");
 
 body {
-  background-color: #000;
+  background-color: #EEE;
 }
 
 h1, h2, p, div {
-  color: white;
+  color: black;
 }
 
 a {
