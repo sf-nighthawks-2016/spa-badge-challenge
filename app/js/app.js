@@ -1,12 +1,22 @@
 $(document).ready(function() {
+  // handlebarsTest();
   getTeachers();
   getTeacher();
   addBadge();
   vote();
 });
 
+// function handlebarsTest() {
+//   var template = $('#hbarsexample').html();
+//   var templateScript = Handlebars.compile(template);
+//   var info = {name: 'Red', occupation: 'Pokemon Master'};
+//   var html = templateScript(info);
+//   $('.logo').append(html);
+// }
+
 // baseURL = "http://localhost:3000/"; // localhost
 baseURL = "http://sample-badges-api.herokuapp.com/"; // H's API
+
 
 function getTeachers() {
   $('body').on('click', '#teachers', function(event) {
@@ -64,7 +74,8 @@ function vote() {
     event.preventDefault();
     var badgeID = $(this).closest('div').parent().attr('id');
     var voteType = $(this).attr('class');
-    var voteData = '{"vote": {"id": "' + badgeID + '", "vote_type": "' + voteType + '"}}'
+    // var voteData = '{"vote": {"id": "' + badgeID + '", "vote_type": "' + voteType + '"}}'
+    var voteData = {"vote": {"id": badgeID, "vote_type": voteType}}
     console.log(voteData);
     $.ajax({
       method: "PUT",
