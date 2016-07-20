@@ -11,26 +11,19 @@
     <div class="logo">
       <h1> SPA Badge </h1>
     </div>
-    <h1><a id="teachers" href="/teachers">SF Teachers</a></h1>
-      <div class="teacher_list"></div>
-        <script id='hbarsteacherlist' type='text/x-handlebars-template'>
-          <ul>
-            {{#each teachers}}
-              <!-- <li>Hello {{name}}, your ID is {{id}}</li> -->
-              <!-- <li><a class="teacher" id="{{id}}" href="#">{{name}}</a></li> -->
-              <li><a class="teacher" id="{{id}}" href="#">{{name}}</a></li>
-            {{/each}}
-          </ul>
-        </script>
-
-
-      <ul>
-        <li><a class="teacher" id="10" href="#">Sherif</a></li>
-        <li><a href="sample-page.html">Sample Page (to see what the badges view should look like)</a></li>
-      </ul>
+    <h1>
+      <h2>SF Teachers</h2>
+    </h1>
+    <div class="teacher_list">
+      <script id='hbarsteacherlist' type='text/x-handlebars-template'>
+        <ul>
+          <li><a href="sample-page.html">Sample Page</a></li>
+          {{#each teachers}}
+            <li><a class="teacher" id="{{id}}" href="#">{{name}}</a></li>
+          {{/each}}
+        </ul>
+      </script>
+    </div>
   </div>
-        <script id='hbarsexample' type='text/x-handlebars-template'>
-          <p>{{ name }} is a {{ occupation }}!</p>
-        </script>
 </body>
 </html>

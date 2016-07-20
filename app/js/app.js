@@ -18,8 +18,8 @@ baseURL = "http://sample-badges-api.herokuapp.com/"; // H's API
 
 
 function getTeachers() {
-  $('body').on('click', '#teachers', function(event) {
-    event.preventDefault();
+  // $('body').on('click', '#teachers', function(event) {
+  //   event.preventDefault();
     $.ajax({
       method: "GET",
       url: baseURL + "teachers",
@@ -28,7 +28,7 @@ function getTeachers() {
       var teacherArry = {teachers: allTeachers}
       renderTemplate(hbarsteacherlist, teacherArry);
     });
-  });
+  // });
 };
 
 function getTeacher() {
