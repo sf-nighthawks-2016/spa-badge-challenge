@@ -41,6 +41,11 @@ function getTeacher() {
       dataType: "json"
     }).done(function(jsonifiedTeacherBadges){
       console.log(jsonifiedTeacherBadges);
+      $('.tl').hide();
+      $.get("../_bd.html", function(data){
+        $('.bd').html(data);
+      })
+
       // populate a 'partial' (handlebars?) with this json
       // then display it
     });
