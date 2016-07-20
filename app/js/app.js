@@ -20,6 +20,7 @@ $(function(){
         method: "get",
         dataType: "json"
       }).done(function(response){
+
         var teachers = response
         console.log(teachers)
         for(i=0;i<teachers.length;i++){
