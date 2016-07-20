@@ -23,6 +23,15 @@ $(function(){
 
         var teachers = response
         console.log(teachers)
+
+        //handle bar call
+        var template = $('#teacher-content').html();
+        var templateScript = Handlebars.compile(template);
+        // var info = {name: 'Red', occupation: 'Pokemon Master'};
+        var info = {name: teachers[0].name };
+        var html = templateScript(info);
+        $('#teacher-content').append(html);
+
         for(i=0;i<teachers.length;i++){
           console.log(teachers[i].name)
         }
