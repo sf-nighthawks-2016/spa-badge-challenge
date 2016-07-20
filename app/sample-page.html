@@ -14,9 +14,13 @@
     </div>
     <h1>Words To Be Remembered By</h1>
     <div class="show-user">
-      <h2> Walker's Badges </h2>
+      <h2> Sherif's Badges </h2>
+      <!-- will be @teacher_id.name, from backend -->
 
+      <!-- do a dot each for these  teacher.badge -->
       <div id="1" class="slogan">
+
+        <!-- handlebar all this shiz -->
         <div class="body">1) DBC Guru</div>
         <div class="vote-on">
           <form action="#">
@@ -70,9 +74,9 @@
 
       <div class="add-badge">
         <h3> Add a Badge: </h3>
-        <form action="#">
-          <input type="hidden" name="user_id" value="5" />
-          <input type="text" name="content" />
+        <form id="add_badge" action="#">
+          <input type="hidden" name="teacher_id" value="10" />
+          <input type="text" name="phrase" />
           <input type="image" src="img/add_button.png" alt="Add Slogan" />
         </form>
       </div>
