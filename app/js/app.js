@@ -1,18 +1,17 @@
 $(document).ready(function() {
-  // handlebarsTest();
   getTeachers();
   getTeacher();
   addBadge();
   vote();
 });
 
-// function handlebarsTest() {
-//   var template = $('#hbarsexample').html();
-//   var templateScript = Handlebars.compile(template);
-//   var info = {name: 'Red', occupation: 'Pokemon Master'};
-//   var html = templateScript(info);
-//   $('.logo').append(html);
-// }
+var renderTemplate = function(scriptID, info) {
+ var templateScript = $(scriptID).html();
+ var theTemplate = Handlebars.compile(templateScript);
+ var theCompiledHtml = theTemplate(info);
+ $('.container').append(theCompiledHtml);
+};
+
 
 // baseURL = "http://localhost:3000/"; // localhost
 baseURL = "http://sample-badges-api.herokuapp.com/"; // H's API
@@ -25,10 +24,9 @@ function getTeachers() {
       method: "GET",
       url: baseURL + "teachers",
       dataType: "json"
-    }).done(function(jsonifiedAllTeachers){
-      console.log(jsonifiedAllTeachers);
-      // populate a 'partial' (handlebars?) with this json
-      // then display it
+    }).done(function(allTeachers){
+      var teacherArry = {teachers: allTeachers}
+      renderTemplate(hbarsteacherlist, teacherArry);
     });
   });
 };
@@ -36,7 +34,7 @@ function getTeachers() {
 function getTeacher() {
   $('body').on('click', '.teacher', function(event) {
     event.preventDefault();
-    var teacherID = $(this).attr('id');
+    var teacherID = $(this)[0]['id'];
     $.ajax({
       method: "GET",
       url: baseURL + "teachers/" + teacherID,
