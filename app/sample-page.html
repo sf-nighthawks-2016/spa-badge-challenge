@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
   <script src="js/app.js"></script>
   <title>SPABadge</title>
 </head>
@@ -13,9 +15,13 @@
     </div>
     <h1>Words To Be Remembered By</h1>
     <div class="show-user">
-      <h2> Walker's Badges </h2>
+      <h2> Sherif's Badges </h2>
+      <!-- will be @teacher_id.name, from backend -->
 
+      <!-- do a dot each for these  teacher.badge -->
       <div id="1" class="slogan">
+
+        <!-- handlebar all this shiz -->
         <div class="body">1) DBC Guru</div>
         <div class="vote-on">
           <form action="#">
@@ -68,10 +74,10 @@
       </div>
 
       <div class="add-badge">
-        <h3> Add a Badge: </h3>
-        <form action="#">
-          <input type="hidden" name="user_id" value="5" />
-          <input type="text" name="content" />
+        <h3> Add a {{occupation}} Badge: </h3>
+        <form id="add_badge" action="#">
+          <input type="hidden" name="teacher_id" value="10" />
+          <input type="text" name="phrase" />
           <input type="image" src="img/add_button.png" alt="Add Slogan" />
         </form>
       </div>
@@ -80,7 +86,7 @@
 
     <div class="nav">
       <span class="nav-link">
-        <a href="spa-badge.html"> HOME </a>
+        <a href="/"> HOME </a>
       </span>
     </div>
   </div>

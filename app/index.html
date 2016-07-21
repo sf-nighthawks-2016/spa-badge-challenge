@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
   <script src="js/app.js"></script>
   <title>SPABadge</title>
 </head>
-<body>
-  <div class="container">
+<body class="container">
     <div class="logo">
-      <h1> SPA Badge </h1>
+      <h1>SPA Badge</h1>
+        <!-- Testing - this works because it's in the page that's already loaded...  -->
+        <!-- we actually want this to show up in the partial -->
+        <!-- <script id='teachername' type='text/x-handlebars-template'> -->
+          <!-- <h2>{{name}}'s Badges</h2> -->
+        <!-- </script> -->
     </div>
-    <h1> SF Teachers </h1>
-      <ul>
-        <li><a href="#">Walker</a></li>
-        <li><a href="sample-page.html">Sample Page (to see what the badges view should look like)</a></li>
-      </ul>
-  </div>
+
+    <div class="tl">
+      <script id='hbarsteacherlist' class="tl" type='text/x-handlebars-template'>
+      <h1 class="tl">SF Teachers</h1>
+        <ul class="tl">
+          <li><a href="sample-page.html">Sample Page</a></li>
+          {{#each teachers}}
+            <li><a class="teacher" id="{{id}}" href="#">{{name}}</a></li>
+          {{/each}}
+        </ul>
+      </script>
+    </div>
+
+    <div class="bd">
+
+    </div>
+
 </body>
 </html>
