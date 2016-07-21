@@ -7,6 +7,8 @@ $(document).ready(function() {
 
 var renderTemplate = function(scriptID, info) {
  var templateScript = $(scriptID).html();
+ debugger;
+
  var theTemplate = Handlebars.compile(templateScript);
  var theCompiledHtml = theTemplate(info);
  $('.container').append(theCompiledHtml);
@@ -35,19 +37,20 @@ function getTeacher() {
   $('body').on('click', '.teacher', function(event) {
     event.preventDefault();
     var teacherID = $(this)[0]['id'];
+    var teacherNameString = $(this)[0]['innerHTML'];
+    var teacherName = {name: teacherNameString};
     $.ajax({
       method: "GET",
       url: baseURL + "teachers/" + teacherID,
       dataType: "json"
-    }).done(function(jsonifiedTeacherBadges){
-      console.log(jsonifiedTeacherBadges);
+    }).done(function(teacherBadges){
       $('.tl').hide();
-      $.get("../_bd.html", function(data){
-        $('.bd').html(data);
-      })
+      $.get("../_bd.html", function(data){$('.bd').html(data);});
 
-      // populate a 'partial' (handlebars?) with this json
-      // then display it
+      console.log(teacherBadges);
+      renderTemplate('#teachername', teacherName);
+
+
     });
   });
 };
